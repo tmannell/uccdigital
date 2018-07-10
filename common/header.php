@@ -21,15 +21,15 @@
 
 
     <!-- Need to add custom and third-party CSS files? Include them here -->
+    <link rel="stylesheet" media="all" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <?php
-        queue_css_file('lib/bootstrap.min');
         queue_css_file('style');
         echo head_css();
     ?>
 
     <!-- Need more JavaScript files? Include them here -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <?php
-        queue_js_file('lib/bootstrap.min');
         queue_js_file('globals');
         echo head_js();
     ?>
