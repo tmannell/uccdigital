@@ -22,8 +22,9 @@ if ($recentCollections):
         <?php endif; ?>
     <?php if (metadata($collection, array('Dublin Core', 'Description'))): ?>
             <div class="collection-description">
-              <?php echo text_to_paragraphs(metadata($collection, array('Dublin Core', 'Description'), array('snippet' => 225))); ?>
+              <?php echo text_to_paragraphs(metadata($collection, array('Dublin Core', 'Description'), array('snippet' => 250))); ?>
             </div>
+            <div class="ui-button-text"><?php echo link_to_collection('View Collection', array(), 'show', $collection) ?></div>
     <?php endif; ?>
             </div>
         </div>
