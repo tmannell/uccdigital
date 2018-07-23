@@ -4,8 +4,8 @@
 ?>
 
     <h1><?php echo 'Browse all items'; ?></h1>
-<div class="row"><?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?></div>
-    <hr>    
+    <div class="row"><?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?></div>
+    <hr>
 
     <div class="browse-items">
         <?php if ($total_results > 0): ?>
@@ -36,9 +36,9 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <?php $image = $item->Files; ?>
-
+                        <?php //print '<pre>'; print_r($image[0]); print '</pre>'; ?>
                         <?php if ($image) {
-                                echo link_to_item('<div style="background-image: url(' . file_display_url($image[0], 'original') . ');" class="img"></div>');
+                                echo link_to_item('<img class="image" src="' . file_display_url($image[0], 'thumbnail') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) . '" />');
                             } else {
                                 echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img"></div>');
                             }
@@ -58,10 +58,6 @@
                 </div>
             </div>
             <?php endforeach; ?>
-            <div id="outputs">
-                <span class="outputs-label"><?php echo __('Output Formats'); ?></span>
-                <?php echo output_format_list(false); ?>
-            </div>
         <?php else : ?>
             <p><?php echo 'No items added, yet.'; ?></p>
         <?php endif; ?>

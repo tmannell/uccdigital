@@ -9,28 +9,32 @@ if ($recentCollections === null || $recentCollections === ''):
 else:
   $recentCollections = (int) $recentCollections;
 endif;
-if ($recentCollections):
-?>
 
+if ($recentCollections):?>
 <h2><?php echo __('Recently Added Collections'); ?></h2>
     <?php foreach (get_recent_collections($recentCollections) as $collection): ?>
         <div class="row">
             <div class="col-sm-12">
-        <h2><?php echo link_to_collection(array(), array(), 'show', $collection); ?></h2>
-        <?php if ($collectionImage = record_image($collection)): ?>
-          <?php echo link_to_collection($collectionImage, array('class' => 'image'), 'show', $collection); ?>
-        <?php endif; ?>
-    <?php if (metadata($collection, array('Dublin Core', 'Description'))): ?>
-            <div class="collection-description">
-              <?php echo text_to_paragraphs(metadata($collection, array('Dublin Core', 'Description'), array('snippet' => 250))); ?>
+                <h2><?php echo link_to_collection(array(), array(), 'show', $collection); ?></h2>
             </div>
-            <div class="ui-button-text"><?php echo link_to_collection('View Collection', array(), 'show', $collection) ?></div>
-    <?php endif; ?>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <?php if ($collectionImage = record_image($collection)): ?>
+                    <?php echo link_to_collection($collectionImage, array('class' => 'image'), 'show', $collection); ?>
+                 <?php endif; ?>
+            </div>
+            <div class="col-sm-9">
+                <?php if (metadata($collection, array('Dublin Core', 'Description'))): ?>
+                <div class="collection-description">
+                    <?php echo text_to_paragraphs(metadata($collection, array('Dublin Core', 'Description'), array('snippet' => 250))); ?>
+                </div>
+                <div class="ui-button-text"><?php echo link_to_collection('View Collection', array(), 'show', $collection) ?></div>
+                <?php endif; ?>
             </div>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
-
 
 
 <div class="row">
