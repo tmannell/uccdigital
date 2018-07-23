@@ -8,6 +8,9 @@
         <meta name="description" content="<?php echo $description; ?>" />
     <?php endif; ?>
 
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
     <!-- Will build the page <title> -->
     <?php
         if (isset($title)) { $titleParts[] = strip_formatting($title); }
@@ -41,10 +44,26 @@
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
     <header role="banner">
+        <nav class="navbar navbar-default top-nav">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><a id="top-ln-1" href="/about">About Us</a></li>
+                    <li><a id="top-ln-2" href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>
-            <h1 class="site-title text-center"><?php echo link_to_home_page(theme_logo()); ?></h1>
-            <h5 class="text-center"><?php echo __('A Sample Omeka Theme'); ?></h5>
+            <div id="logo-title" class="row">
+                <div class="col-sm-3 logo">
+                    <a href="/" title="Home"><img class="image" src="/themes/uccdigital/images/cropped-Logo-e1519826732401.png" alt="United Church Archives Logo"/></a>
+                </div>
+                <div class="col-sm-9 bottom-align-text text-right">
+                    <h1 class="site-title pull-right"><a href="/">Digital Collections</a></h1>
+                </div>
+            </div>
+
+
         </div>
 
         <nav class="navbar navbar-default" role="navigation">

@@ -36,16 +36,15 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <?php $image = $item->Files; ?>
-                        <?php //print '<pre>'; print_r($image[0]); print '</pre>'; ?>
                         <?php if ($image) {
-                                echo link_to_item('<img class="image" src="' . file_display_url($image[0], 'thumbnail') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) . '" />');
+                                echo link_to_item('<img class="image" src="' . file_display_url($image[0], 'thumbnail') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) .'" />', array('title' => 'View Item'));
                             } else {
-                                echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img"></div>');
+                                echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img" alt="Default Image"></div>');
                             }
                         ?>
                     </div>
                     <div class="col-sm-3">
-                        <?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?>
+                        <?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink', 'title' => 'View Item')); ?>
                     </div>
                     <div class="col-sm-3">
                         <?php echo metadata('item', array('Dublin Core', 'Date')); ?>

@@ -2,37 +2,51 @@
     echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show'));
 ?>
 <?php $collection = get_collection_for_item() ?>
+  <div class="row">
+      <div class="col-sm-12 text-center">
+          <?php if (metadata($collection, array('Dublin Core', 'Relation')) != null || trim(metadata($collection, array('Dublin Core', 'Relation'))) != ''): ?>
+            <h1><a title="View Fonds Description at archeion.ca" href="<?php echo metadata($collection, array('Dublin Core', 'Relation')); ?>"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></a></h1>
+          <?php else: ?>
+            <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
+          <?php endif; ?>
+      </div>
+  </div>
 
-  <?php if (metadata($collection, array('Dublin Core', 'Relation')) != null || trim(metadata($collection, array('Dublin Core', 'Relation'))) != ''): ?>
-    <h1><a href="<?php echo metadata($collection, array('Dublin Core', 'Relation')); ?>"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></a></h1>
+
+  <?php $images = $item->Files; $imagesCount = 1; ?>
+  <?php if ($images): ?>
+  <?php foreach ($images as $image): ?>
+      <?php if ($imagesCount === 1): ?>
+
+            <?php
+            $path = $_SERVER['DOCUMENT_ROOT'] . "/files/versos/";
+            $filename = str_replace('.', '_', metadata('item', array('Dublin Core', 'Identifier'))) . '_verso.jpg';?>
+
+            <div class="row">
+                <?php if (file_exists($path . $filename)): ?>
+                      <div class="col-sm-6">
+                          <a href="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>"><img class="img-responsive" src="<?php echo url('/'); ?>files/fullsize/<?php echo $image->filename; ?>" alt="<?php echo metadata('item', array('Dublin Core', 'Title')) ?>"/></a>
+                      </div>
+                      <div class="col-sm-6">
+                          <a href="/files/versos/<?php echo $filename ?>"><img class="img-responsive" src="/files/versos/<?php echo $filename ?>" alt="Back (Verso) of <?php echo metadata('item', array('Dublin Core', 'Title')) ?>" /></a>
+                      </div>
+                <?php else: ?>
+                      <div class="col-sm-12">
+                          <a href="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>"><img class="img-responsive img-center" src="<?php echo url('/'); ?>files/fullsize/<?php echo $image->filename; ?>" alt="<?php echo metadata('item', array('Dublin Core', 'Title')) ?>"/></a>
+                      </div>
+                <?php endif; ?>
+            </div>
+
+      <?php endif; ?>
+
+  <?php $imagesCount++; endforeach; ?>
   <?php else: ?>
-    <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
+      <div class="no-image">No photos available.</div>
   <?php endif; ?>
 
-    <div class="row">
-        <div class="col-sm-6">
-                <?php $images = $item->Files; $imagesCount = 1; ?>
-                <?php if ($images): ?>
-                <ul id="image-gallery" class="clearfix">
-                    <?php foreach ($images as $image): ?>
-                        <?php if ($imagesCount === 1): ?>
-                            <img src="<?php echo url('/'); ?>files/fullsize/<?php echo $image->filename; ?>" />
-                            <?php
-                                $path = $_SERVER['DOCUMENT_ROOT'] . "/files/versos/";
-                                $filename = str_replace('.', '_', metadata('item', array('Dublin Core', 'Identifier'))) . '_verso.jpg';
-                                if (file_exists($path . $filename)): ?>
-                                    <img src="/files/versos/<?php echo $filename ?>" />"
-                                <?php endif; ?>
-                        <?php endif; ?>
-                    <?php $imagesCount++; endforeach; ?>
-                </ul>
-                <?php else: ?>
-                    <div class="no-image">No photos available.</div>
-                <?php endif; ?>
-        </div>
-    </div>
 
-    <div class="element-set">
+    <div class="row element-set">
+        <div class="col-sm-8 col-sm-offset-2">
         <div id="dublin-core-title" class="element">
           <h3><?php echo __('Title') ?></h3>
             <div class="element-text"><?php echo metadata('item', array('Dublin Core', 'Title')) ?></div>
@@ -103,7 +117,7 @@
             <?php if (metadata('item', 'Collection Name')): ?>
                 <div id="collection" class="element">
                     <h3><?php echo __('Collection'); ?></h3>
-                    <div class="element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
+                    <div class="element-text"><p><?php echo link_to_collection_for_item(metadata('item', 'collection_name'), array('title' => 'View Collection')); ?></p></div>
                 </div>
             <?php endif; ?>
 
@@ -120,7 +134,7 @@
                 <h3><?php echo __('Citation'); ?></h3>
                 <div class="element-text"><?php echo metadata('item', 'citation', array('no_escape' => true)); ?></div>
             </div>
-
+        </div>
     </div>
     
     <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>

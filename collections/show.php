@@ -4,13 +4,9 @@
 ?>
 <h1><a href="<?php echo metadata('collection', array('Dublin Core', 'Relation')); ?>" target="_blank"><?php echo $collectionTitle; ?></a></h1>
     <div class="element-set">
-        <div id="dublin-core-coverage" class="element-text">
-            <h2><?php echo __('Administrative History'); ?></h2>
-            <?php echo metadata('collection', array('Dublin Core', 'Coverage')); ?>
-        </div>
 
         <div id="dublin-core-description" class="element-text">
-            <h2><?php echo __('Scope and Content'); ?></h2>
+            <h2><?php echo __('Description'); ?></h2>
             <?php echo metadata('collection', array('Dublin Core', 'Description')); ?>
         </div>
 
@@ -28,11 +24,10 @@
                     <div class="row">
                         <div class="col-sm-3">
                           <?php $image = $item->Files; ?>
-                          <?php //print '<pre>'; print_r($image[0]); print '</pre>'; ?>
                           <?php if ($image) {
-                            echo link_to_item('<img class="image" src="' . file_display_url($image[0], 'thumbnail') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) . '" />');
+                            echo link_to_item('<img class="image" src="' . file_display_url($image[0], 'thumbnail') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) . '" />', array('title' => 'View Item'));
                           } else {
-                            echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img"></div>');
+                            echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img" alt="Default image"></div>');
                           }
                           ?>
                         </div>
