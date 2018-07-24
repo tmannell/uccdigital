@@ -3,18 +3,18 @@
     echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 ?>
 <div class="container">
-<h1><?php echo $pageTitle ?></h1>
+<h2><?php echo $pageTitle ?></h2>
 
     <div class="container browse-collections">
         <?php if ($total_results > 0): ?>
             <?php foreach (loop('collections') as $collection): ?>
                 <?php $title = metadata($collection, array('Dublin Core', 'Title')); ?>
-                <div class="row">
+                <div class="row collection-title">
                     <div class="col-sm-12">
-                        <h2><?php echo link_to_collection(array(), array('title' => 'View Collection'), 'show', $collection); ?></h2>
+                        <h3><?php echo link_to_collection(array(), array('title' => 'View Collection'), 'show', $collection); ?></h3>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row collection-info">
                     <div class="col-sm-3">
                       <?php if ($collectionImage = record_image($collection, null, array('class' => 'image', 'alt' => $title, 'title' => 'View Collection'))): ?>
 
