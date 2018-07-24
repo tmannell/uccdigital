@@ -46,6 +46,11 @@ header {
     font-weight:normal;
 }
 
+#logo-title .site-title a:hover {
+    color: #06c;
+    text-decoration: underline !important;
+}
+
 /* Main Nav */
 .navbar-default {
     background-color: inherit;

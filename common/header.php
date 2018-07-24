@@ -55,10 +55,10 @@
         <div class="container">
             <?php fire_plugin_hook('public_header', array('view'=>$this)); ?>
             <div id="logo-title" class="row">
-                <div class="col-sm-3 logo">
+                <div class="col-sm-5 logo">
                     <a href="/" title="Home"><img class="image" src="/themes/uccdigital/images/cropped-Logo-e1519826732401.png" alt="United Church Archives Logo"/></a>
                 </div>
-                <div class="col-sm-9 bottom-align-text text-right">
+                <div class="col-sm-7 bottom-align-text text-right">
                     <h1 class="site-title pull-right"><a href="/">Digital Collections</a></h1>
                 </div>
             </div>
