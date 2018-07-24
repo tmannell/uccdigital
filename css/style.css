@@ -41,6 +41,11 @@ header {
     height: 7em;
 }
 
+#logo-title .site-title a {
+    color: #333;
+    font-weight:normal;
+}
+
 /* Main Nav */
 .navbar-default {
     background-color: inherit;
