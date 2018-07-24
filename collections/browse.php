@@ -2,9 +2,9 @@
     $pageTitle = __('Browse collections');
     echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 ?>
+<div class="container">
+<h1><?php echo $pageTitle ?></h1>
 
-    <h1><?php echo $pageTitle ?></h1>
-    
     <div class="container browse-collections">
         <?php if ($total_results > 0): ?>
             <?php foreach (loop('collections') as $collection): ?>
@@ -38,4 +38,5 @@
     <?php echo pagination_links(); ?>        
 
 <?php fire_plugin_hook('public_collections_browse', array('collections'=> $collections, 'view' => $this)); ?>
+</div>
 <?php echo foot(); ?>

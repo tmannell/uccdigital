@@ -9,7 +9,7 @@
     <?php endif; ?>
 
     <!-- Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">-->
 
     <!-- Will build the page <title> -->
     <?php
@@ -67,7 +67,7 @@
         </div>
 
         <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
+            <div class="container navbar-container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-navigation">
                         <span class="sr-only">Menu</span>
@@ -88,5 +88,4 @@
         </nav>
     </header>
     <main id="content" role="main">
-      <div class="container">
-          <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
+      <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>

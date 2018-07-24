@@ -1,15 +1,16 @@
 <?php
-    $pageTitle = __('Browse Items');
-    echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
+$pageTitle = __('Browse Items');
+echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
 ?>
+    <div class="container">
+        <h2><?php echo 'Browse all items'; ?></h2>
+        <div class="row">
+          <?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
+        </div>
 
-    <h1><?php echo 'Browse all items'; ?></h1>
-    <div class="row"><?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?></div>
-    <hr>
-
-    <div class="browse-items">
-        <?php if ($total_results > 0): ?>
-        <?php
+        <div class="browse-items">
+            <?php if ($total_results > 0): ?>
+            <?php
             $sortLinks[__('Title')] = 'Dublin Core,Title';
             $sortLinks[__('Date')] = 'Dublin Core,Date';
             $sortLinks[__('Identifier')] = 'Dublin Core,Identifier';
@@ -17,28 +18,29 @@
             <div class="browse-items-header hidden-xs">
                 <div class="row">
                     <div class="col-sm-3">
-                        Item
+                        <h4>Item</h4>
                     </div>
                     <div class="col-sm-3">
-                        <?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?>
+                        </h4><?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?></h4>
                     </div>
                     <div class="col-sm-3">
-                        <?php echo browse_sort_links(array('Date'=>'Dublin Core,Date'), array('')); ?>
+                        <h4><?php echo browse_sort_links(array('Date'=>'Dublin Core,Date'), array('')); ?></h4>
                     </div>
                     <div class="col-sm-3">
-                      <?php echo browse_sort_links(array('Identifier'=>'Dublin Core,Identifier'), array('')); ?>
+                      <h4><?php echo browse_sort_links(array('Identifier'=>'Dublin Core,Identifier'), array('')); ?></h4>
                     </div>
                 </div>
             </div>
-        
+
             <?php foreach (loop('items') as $item): ?>
             <div class="item">
-                <div class="row">
+                <div class="row item-row">
                     <div class="col-sm-3">
                         <?php $image = $item->Files; ?>
                         <?php if ($image) {
                                 echo link_to_item('<img class="image" src="' . file_display_url($image[0], 'thumbnail') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) .'" />', array('title' => 'View Item'));
-                            } else {
+                            }
+                            else {
                                 echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img" alt="Default Image"></div>');
                             }
                         ?>
@@ -52,16 +54,15 @@
                     <div class="col-sm-3">
                         <?php echo metadata('item', array('Dublin Core', 'Identifier')); ?>
                     </div>
-                
                     <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
                 </div>
             </div>
             <?php endforeach; ?>
-        <?php else : ?>
-            <p><?php echo 'No items added, yet.'; ?></p>
-        <?php endif; ?>
+            <?php else : ?>
+                <p><?php echo 'No items added, yet.'; ?></p>
+            <?php endif; ?>
+        </div>
+        <?php echo pagination_links(); ?>
+        <?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
     </div>
-    <?php echo pagination_links(); ?>
-
-<?php fire_plugin_hook('public_items_browse', array('items'=>$items, 'view' => $this)); ?>
 <?php echo foot(); ?>
