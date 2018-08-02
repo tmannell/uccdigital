@@ -107,14 +107,27 @@ nav.navbar:nth-child(3) {
     padding: 2em 0;
 }
 
-/* Browse Collection */
-.collection-title {
-    margin-bottom: .5em;
-}
-.collection-info {
-    margin-bottom: .75em;
+/* Browse Collection and Browse Exhibition */
+.browse-collections, .browse-exhibitions {
+    padding: 0em 1.5em;
 }
 
+.collection-title, .exhibition-title {
+    margin-bottom: .5em;
+}
+
+.collection-info, .exhibition-info {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+}
+
+.collection-row, .exhibition-row {
+    padding: 0 1em;
+}
+
+.collection-row:hover, .exhibition-row:hover {
+    background-color: #eee;
+}
 /* Tag Cloud */
 .hTagcloud {margin-top: 2em;}
 
@@ -160,6 +173,26 @@ nav.navbar:nth-child(3) {
 
 .search-page ul{
     float: none !important;
+}
+
+/* Item Show */
+.item-title {
+    margin-bottom: 1.25em;
+}
+
+.element-set {
+    margin-top: 1.25em;
+}
+
+@media only screen and (max-width: 768px) {
+    .img-height img {
+        float: none !important;
+    }
+}
+
+/* Simple Page */
+.simple-page-content {
+    padding: 1.25em 2.25em 0;
 }
 
 

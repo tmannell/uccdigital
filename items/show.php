@@ -1,13 +1,15 @@
-<?php 
+
+<?php
     echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show'));
 ?>
+<div class="container">
 <?php $collection = get_collection_for_item() ?>
   <div class="row">
       <div class="col-sm-12 text-center">
           <?php if (metadata($collection, array('Dublin Core', 'Relation')) != null || trim(metadata($collection, array('Dublin Core', 'Relation'))) != ''): ?>
-            <h1><a title="View Fonds Description at archeion.ca" href="<?php echo metadata($collection, array('Dublin Core', 'Relation')); ?>"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></a></h1>
+            <h2 class="item-title"><a title="View Fonds Description at archeion.ca" href="<?php echo metadata($collection, array('Dublin Core', 'Relation')); ?>"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></a></h2>
           <?php else: ?>
-            <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
+            <h2><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h2>
           <?php endif; ?>
       </div>
   </div>
@@ -24,11 +26,12 @@
 
             <div class="row">
                 <?php if (file_exists($path . $filename)): ?>
-                      <div class="col-sm-6">
-                          <a href="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>"><img class="img-responsive" src="<?php echo url('/'); ?>files/fullsize/<?php echo $image->filename; ?>" alt="<?php echo metadata('item', array('Dublin Core', 'Title')) ?>"/></a>
+                <?php $height = getimagesize('/var/web/omeka.local/files/fullsize/' . $image->filename);?>
+                      <div class="col-sm-6 img-height">
+                          <a href="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>"><img class="img-responsive pull-right" src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" alt="<?php echo metadata('item', array('Dublin Core', 'Title')) ?>"/></a>
                       </div>
-                      <div class="col-sm-6">
-                          <a href="/files/versos/<?php echo $filename ?>"><img class="img-responsive" src="/files/versos/<?php echo $filename ?>" alt="Back (Verso) of <?php echo metadata('item', array('Dublin Core', 'Title')) ?>" /></a>
+                      <div class="col-sm-6 img-height">
+                          <a href="/files/versos/<?php echo $filename ?>"><img class="img-responsive pull-left verso" <?php //echo $height[3] ?> src="/files/versos/<?php echo $filename ?>" alt="Back (Verso) of <?php echo metadata('item', array('Dublin Core', 'Title')) ?>" /></a>
                       </div>
                 <?php else: ?>
                       <div class="col-sm-12">
@@ -142,5 +145,5 @@
         <li class="previous"><?php echo link_to_previous_item_show(); ?></li>
         <li class="next"><?php echo link_to_next_item_show(); ?></li>
     </ul>
-
+</div>
 <?php echo foot(); ?>

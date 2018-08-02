@@ -5,9 +5,10 @@
 <div class="container">
 <h2><?php echo $pageTitle ?></h2>
 
-    <div class="container browse-collections">
+    <div class="browse-collections">
         <?php if ($total_results > 0): ?>
             <?php foreach (loop('collections') as $collection): ?>
+            <div class="row collection-row">
                 <?php $title = metadata($collection, array('Dublin Core', 'Title')); ?>
                 <div class="row collection-title">
                     <div class="col-sm-12">
@@ -30,6 +31,7 @@
                       <?php endif; ?>
                     </div>
                 </div>
+            </div>
             <?php endforeach; ?>
         <?php else : ?>
             <p><?php echo 'No collections added, yet.'; ?></p>
