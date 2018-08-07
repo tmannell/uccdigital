@@ -1,32 +1,43 @@
 <?php
+    $collectionId = metadata('collection', 'id');
     $collectionTitle = strip_formatting(metadata('collection', array('Dublin Core', 'Title')));
     echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 ?>
-<h1><a href="<?php echo metadata('collection', array('Dublin Core', 'Relation')); ?>" target="_blank"><?php echo $collectionTitle; ?></a></h1>
-    <div class="element-set">
+<div class="container">
+<h2 class="text-center"><a href="<?php echo metadata('collection', array('Dublin Core', 'Relation')); ?>" target="_blank"><?php echo $collectionTitle; ?></a></h2>
 
-        <div id="dublin-core-description" class="element-text">
-            <h2><?php echo __('Description'); ?></h2>
-            <?php echo metadata('collection', array('Dublin Core', 'Description')); ?>
+        <div class="row">
+            <div id="dublin-core-description" class="col-sm-12 collection-element-text">
+                <h3><?php echo __('Description'); ?></h3>
+                <?php echo metadata('collection', array('Dublin Core', 'Description')); ?>
+            </div>
         </div>
 
-        <div id="dublin-core-relation" class="element-text">
-            <h2><?php echo __('Link to fonds level description'); ?></h2>
-            <a href="<?php echo metadata('collection', array('Dublin Core', 'Relation')); ?>" target="_blank"><?php echo metadata('collection', array('Dublin Core', 'Relation')); ?></a>
+        <div class="row">
+            <div id="dublin-core-relation" class="col-sm-12 collection-element-text">
+                <h3><?php echo __('Link to fonds level description'); ?></h3>
+                <a href="<?php echo metadata('collection', array('Dublin Core', 'Relation')); ?>" target="_blank"><?php echo metadata('collection', array('Dublin Core', 'Relation')); ?></a>
+            </div>
         </div>
+
     </div>
+    <div class="container" id="collection-items">
+        <h3><?php echo __('Recent Items') ?></h3>
+        <span><?php echo link_to_items_browse(__('View all items in collection'), array('collection' => metadata('collection', 'id'))); ?></span>
 
-    <div id="collection-items">
-        <h2><?php echo link_to_items_browse(__('Items in the %s Collection', $collectionTitle), array('collection' => metadata('collection', 'id'))); ?></h2>
         <?php if (metadata('collection', 'total_items') > 0): ?>
-            <?php foreach (loop('items') as $item): ?>
+            <?php
+                $items = get_db()->getTable('Item')->findBy(array('collection_id' => $collectionId, 'sort_field' => 'added', 'sort_dir' => 'd'), 10);
+            ?>
+            <?php foreach (loop('items', $items) as $item):?>
                 <div class="item">
-                    <div class="row">
+                    <div class="row item-row">
                         <div class="col-sm-3">
                           <?php $image = $item->Files; ?>
                           <?php if ($image) {
                             echo link_to_item('<img class="image" src="' . file_display_url($image[0], 'thumbnail') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) . '" />', array('title' => 'View Item'));
-                          } else {
+                          }
+                          else {
                             echo link_to_item('<div style="background-image: url(' . img('defaultImage@2x.jpg') . ');" class="img" alt="Default image"></div>');
                           }
                           ?>
@@ -48,7 +59,7 @@
         <?php else: ?>
             <p><?php echo __("There are currently no items within this collection."); ?></p>
         <?php endif; ?>
-    </div><!-- end collection-items -->
+    </div>
 
 <?php fire_plugin_hook('public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
 <?php echo foot(); ?>
