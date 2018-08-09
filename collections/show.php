@@ -21,7 +21,7 @@
         </div>
 
     </div>
-    <div class="container" id="collection-items">
+    <div class="container container-correction" id="collection-items">
         <h3><?php echo __('Recent Items') ?></h3>
         <span><?php echo link_to_items_browse(__('View all items in collection'), array('collection' => metadata('collection', 'id'))); ?></span>
 

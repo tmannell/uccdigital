@@ -3,7 +3,7 @@
     echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
 ?>
 <div class="container">
-<h2><?php echo $pageTitle ?></h2>
+<h2 class="page-title"><?php echo $pageTitle ?></h2>
 
     <div class="browse-collections">
         <?php if ($total_results > 0): ?>

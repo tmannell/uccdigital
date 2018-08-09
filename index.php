@@ -1,6 +1,6 @@
 <?php echo head(array('bodyid'=>'home')); ?>
 
-<div class="container">
+<div class="container container-correction">
     <?php echo get_theme_option('Homepage About'); ?>
 </div>
 
@@ -12,10 +12,11 @@ else:
   $recentCollections = (int) $recentCollections;
 endif;
 if ($recentCollections):?>
-<div class="container">
+<div class="container container-correction">
     <h2><?php echo __('Recently Added Collections'); ?></h2>
     <hr/>
     <?php foreach (get_recent_collections($recentCollections) as $collection): ?>
+    <div class="row collection-row">
         <div class="row collection-title">
             <div class="col-sm-12">
                 <h3><?php echo link_to_collection(array(), array(), 'show', $collection); ?></h3>
@@ -36,6 +37,7 @@ if ($recentCollections):?>
                 <?php endif; ?>
             </div>
         </div>
+    </div>
     <?php endforeach; ?>
 <?php endif; ?>
 </div>

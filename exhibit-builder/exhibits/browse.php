@@ -4,8 +4,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
 ?>
 
 <div class="container">
-    <h2><?php echo $title; ?></h2>
-
+    <h2 class="page-title"><?php echo $title; ?></h2>
     <div class="browse-exhibitions">
         <?php if (count($exhibits) > 0): ?>
         <?php $exhibitCount = 0; ?>

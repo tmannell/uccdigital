@@ -2,7 +2,7 @@
 
 body {
     color: #333;
-    font-family: "sans-serif", "Raleway","Helvetica Neue";
+    font-family: sans-serif, "Raleway","Helvetica Neue";
     font-weight: normal;
     font-size: 16px;
     line-height: 1.625;
@@ -21,6 +21,21 @@ a:hover {
 
 header {
     background-color: #fff;
+}
+
+.page-title {
+    margin-left: .77em;
+    padding-bottom: .5em;
+}
+
+.simple-page-title {
+    margin-left: .6em;
+    padding-bottom: .5em;
+}
+
+.container-correction {
+    padding-left: 3em !important;
+    padding-right: 3em !important;
 }
 
 /* Top Nav */

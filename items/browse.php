@@ -2,7 +2,7 @@
 $pageTitle = __('Browse Items');
 echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
 ?>
-    <div class="container">
+    <div class="container-correction container">
         <h2><?php echo 'Browse all items'; ?></h2>
         <div class="row">
           <?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
