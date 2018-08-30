@@ -37,7 +37,7 @@
                         . html_escape($this->current) . '"></div>';
         ?>
         <?php echo __('%s', $pageInput) ?>
-            <div class="col-sm-3"><?php echo __('of %s', $this->last) ?></div>
+            <div class="col-sm-4"><?php echo __('of %s', $this->last) ?></div>
         </form>
 
 

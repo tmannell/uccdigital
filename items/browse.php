@@ -21,7 +21,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
                         <h4>Item</h4>
                     </div>
                     <div class="col-sm-3">
-                        </h4><?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?></h4>
+                        <h4><?php echo browse_sort_links(array('Title'=>'Dublin Core,Title'), array('')); ?></h4>
                     </div>
                     <div class="col-sm-3">
                         <h4><?php echo browse_sort_links(array('Date'=>'Dublin Core,Date'), array('')); ?></h4>

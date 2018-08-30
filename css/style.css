@@ -216,6 +216,22 @@ nav.navbar:nth-child(3) {
 }
 
 /* Exhibition Summary */
+#exhibit-nav-next:hover {
+    background-color: #ddd;
+}
+
+.exhibition-title {
+    margin-bottom: 1em;
+}
+
+.exhibition-tree-title {
+    margin: 0 0 1em 1em;
+}
+
+.exhibit-item-caption {
+    font-size:inherit;
+}
+
 #exhibit-pages ul {
     display: -webkit-box;
     display: -ms-flexbox;

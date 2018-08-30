@@ -3,8 +3,8 @@
     echo head(array('title' => $pageTitle, 'bodyclass' => 'items advanced-search'));
 ?>
 
-<div class="container search-page">
-    <h1><?php echo $pageTitle; ?></h1>
+<div class="container container-correction search-page">
+    <h2><?php echo $pageTitle; ?></h2>
     <?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
     <hr>
     <br />

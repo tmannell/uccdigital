@@ -1,12 +1,9 @@
 <?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1><?php echo metadata('exhibit', 'title'); ?></h1>
-            <?php echo exhibit_builder_page_nav(); ?>
-        </div>
-    </div>
+<div class="container container-correction">
+
+    <h2 class="exhibition-title"><?php echo metadata('exhibit', 'title'); ?></h2>
+    <?php echo exhibit_builder_page_nav(); ?>
     <div class="row">
         <div class="col-sm-12" id="primary">
             <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
@@ -32,7 +29,7 @@
         if ($pageTree):
         ?>
         <nav class="row" id="exhibit-pages">
-            <div class="col-sm-12">
+            <div class="col-sm-10 col-sm-offset-1">
                 <?php echo $pageTree; ?>
             </div>
         </nav>
