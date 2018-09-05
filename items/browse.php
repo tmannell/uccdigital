@@ -5,7 +5,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
     <div class="container-correction container">
         <h2><?php echo 'Browse all items'; ?></h2>
         <div class="row">
-          <?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
+          <?php $subnav = ucc_digital_public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
         </div>
 
         <div class="browse-items">

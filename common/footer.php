@@ -71,9 +71,8 @@
                 </div>
             </div>
             <div class="row footer-link">
-                <div id="copyright" class="col-sm-3"><?php echo __('Copyright &copy; ') . date('Y') . ' UCC'?></div>
-                <div class="col-sm-6"></div>
-                <div id="footer-info-links" class="col-sm-3 text-right"><a href="/contact">Contact Us</a> | <a href="/about">About Us</a></div>
+                <div id="copyright" class="text-left col-xs-6"><?php echo __('Copyright &copy; ') . date('Y') . ' UCC'?></div>
+                <div id="footer-info-links" class="col-xs-6 text-right"><a href="/contact">Contact Us</a> | <a href="/about">About Us</a></div>
             </div>
         </div>
     </footer>

@@ -24,14 +24,16 @@
 
 
     <!-- Need to add custom and third-party CSS files? Include them here -->
-    <link rel="stylesheet" media="all" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <?php
         queue_css_file('style');
         echo head_css();
     ?>
 
     <!-- Need more JavaScript files? Include them here -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <?php
         queue_js_file('globals');
         echo head_js();
@@ -46,10 +48,12 @@
     <header role="banner">
         <nav class="navbar navbar-default top-nav">
             <div class="container-fluid">
-                <ul class="nav navbar-nav">
+                <div class="navbar-collapse">
+                <ul class="nav navbar-left nav-pills">
                     <li><a id="top-ln-1" href="/about">About Us</a></li>
                     <li><a id="top-ln-2" href="/contact">Contact Us</a></li>
                 </ul>
+                </div>
             </div>
         </nav>
         <div class="container">
@@ -58,7 +62,7 @@
                 <div class="col-sm-5 logo">
                     <a href="/" title="Home"><img class="image" src="/themes/uccdigital/images/cropped-Logo-e1519826732401.png" alt="United Church Archives Logo"/></a>
                 </div>
-                <div class="col-sm-7 bottom-align-text text-right">
+                <div id="ucc-site-title" class="col-xs-7 bottom-align-text text-right">
                     <h1 class="site-title pull-right"><a href="/">Digital Collections</a></h1>
                 </div>
             </div>
@@ -69,6 +73,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container navbar-container">
                 <div class="navbar-header">
+                    <div id="nav-site-title" class="site-title"><a href="/">Digital Collections</a></div>
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-navigation">
                         <span class="sr-only">Menu</span>
                         <span class="icon-bar"></span>
@@ -78,11 +83,16 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="primary-navigation">
+                    <div class="row">
+                        <div class="col-sm-8">
                     <?php echo public_nav_main_bootstrap(); ?>
-
+                        </div>
+                        <div class="col-sm-4">
                     <form class="navbar-form navbar-right" role="search" action="<?php echo public_url(''); ?>search">
                         <?php echo search_form(array('show_advanced' => false)); ?>
                     </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
