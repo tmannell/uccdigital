@@ -17,7 +17,7 @@
                 </div>
                 <div class="row collection-info">
                     <div class="col-sm-3">
-                      <?php if ($collectionImage = record_image($collection, null, array('class' => 'image', 'alt' => $title, 'title' => 'View Collection'))): ?>
+                      <?php if ($collectionImage = record_image($collection, 'thumbnail', array('class' => 'image', 'alt' => $title, 'title' => 'View Collection'))): ?>
 
                         <?php echo link_to_collection($collectionImage, array('class' => 'image', 'title' => 'View Collection'), 'show', $collection); ?>
                       <?php endif; ?>
