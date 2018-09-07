@@ -237,14 +237,8 @@ $formAttributes['method'] = 'GET';
         ?>
         </div>
     </div>
-    <div class="field">
-        <?php echo $this->formLabel('exhibit', __('Search by Exhibit')); ?>
-        <div class="inputs">
-          <?php echo $this->formSelect('exhibit', @$_GET['exhibit'], array('class' => "form-control"), get_table_options('Exhibit')); ?>
-        </div>
-    </div>
 
-    <?php fire_plugin_hook('public_items_search', array('view' => $this)); ?>
+<?php //fire_plugin_hook('public_items_search', array('view' => $this)); ?>
     <div>
         <?php if (!isset($buttonText)) {
             $buttonText = __('Search for items');

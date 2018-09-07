@@ -5,7 +5,7 @@
     ?>
     <div class="container">
     <h1><?php echo $pageTitle; ?></h1>
-    <?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
+    <?php $subnav = ucc_digital_public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
     <br />
     <hr>
 

@@ -12,13 +12,14 @@
                 <?php echo metadata('collection', array('Dublin Core', 'Description')); ?>
             </div>
         </div>
-
+        <?php if (metadata('collection', array('Dublin Core', 'Relation')) != '' || !is_null(metadata('collection', array('Dublin Core', 'Relation')))): ?>
         <div class="row">
             <div id="dublin-core-relation" class="col-sm-12 collection-element-text">
                 <h3><?php echo __('Link to fonds level description'); ?></h3>
                 <a href="<?php echo metadata('collection', array('Dublin Core', 'Relation')); ?>" target="_blank"><?php echo metadata('collection', array('Dublin Core', 'Relation')); ?></a>
             </div>
         </div>
+        <?php endif; ?>
 
     </div>
     <div class="container container-correction" id="collection-items">

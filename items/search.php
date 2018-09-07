@@ -5,7 +5,7 @@
 
 <div class="container container-correction search-page">
     <h2><?php echo $pageTitle; ?></h2>
-    <?php $subnav = public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
+    <?php $subnav = ucc_digital_public_nav_items(); echo $subnav->setUlClass('nav nav-pills'); ?>
     <hr>
     <br />
     <?php echo $this->partial('items/search-form.php', array('formAttributes' => array('id'=>'advanced-search-form'))); ?>

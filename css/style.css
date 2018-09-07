@@ -337,6 +337,10 @@ img {
 }
 
 @media only screen and (max-width:768px) {
+    .navbar-default .collapsed {
+        background-color: #fff !important;
+    }
+
     .nav>li>a:hover {
         background-color: #ddd;
     }
@@ -370,6 +374,18 @@ img {
 
     .item-row {
         border-bottom: 1px dashed #ddd;
+    }
+
+    .ucc-navs .active a {
+        color: #06c !important;
+    }
+
+    #primary-navigation .ucc-navs a {
+        color: #06c;
+    }
+
+    #primary-navigation .ucc-navs .active a {
+        background-color: #ddd;
     }
 }
 
