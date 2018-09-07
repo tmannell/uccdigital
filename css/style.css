@@ -51,6 +51,11 @@ header {
     text-transform: uppercase;
 }
 
+#top-ln-1:hover, #top-ln-2:hover {
+    background-color: #002B55 !important;
+    text-decoration: underline;
+}
+
 /* Logo Site Title*/
 #logo-title {
     height: 7em;
@@ -313,6 +318,10 @@ img {
 
 .img-center {
     margin: 0 auto;
+}
+
+.thumbnail {
+    border: none !important
 }
 
 /** Responsive Stuff **/
