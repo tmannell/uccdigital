@@ -24,7 +24,7 @@ if ($recentCollections):?>
         </div>
         <div class="row collection-info">
             <div class="col-sm-3">
-                <?php if ($collectionImage = record_image($collection)): ?>
+                <?php if ($collectionImage = record_image($collection, 'thumbnail')): ?>
                     <?php echo link_to_collection($collectionImage, array('class' => 'image'), 'show', $collection); ?>
                  <?php endif; ?>
             </div>
