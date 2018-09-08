@@ -26,12 +26,11 @@
 
             <div class="row">
                 <?php if (file_exists($path . $filename)): ?>
-                <?php $height = getimagesize('/var/web/omeka.local/files/fullsize/' . $image->filename);?>
                       <div class="col-sm-6 img-height">
                           <a href="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>"><img class="img-responsive pull-right" src="<?php echo url('/'); ?>files/original/<?php echo $image->filename; ?>" alt="<?php echo metadata('item', array('Dublin Core', 'Title')) ?>"/></a>
                       </div>
                       <div class="col-sm-6 img-height">
-                          <a href="/files/versos/<?php echo $filename ?>"><img class="img-responsive pull-left verso" <?php //echo $height[3] ?> src="/files/versos/<?php echo $filename ?>" alt="Back (Verso) of <?php echo metadata('item', array('Dublin Core', 'Title')) ?>" /></a>
+                          <a href="/files/versos/<?php echo $filename ?>"><img class="img-responsive pull-left verso" src="/files/versos/<?php echo $filename ?>" alt="Back (Verso) of <?php echo metadata('item', array('Dublin Core', 'Title')) ?>" /></a>
                       </div>
                 <?php else: ?>
                       <div class="col-sm-12">
