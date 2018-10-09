@@ -50,8 +50,8 @@
             <div class="container-fluid">
                 <div class="navbar-collapse">
                 <ul class="nav navbar-left nav-pills">
-                    <li><a id="top-ln-1" href="/about">About Us</a></li>
-                    <li><a id="top-ln-2" href="/contact">Contact Us</a></li>
+                    <li><a id="top-ln-1" href="https://www.unitedchurcharchives.ca/">About Us</a></li>
+                    <li><a id="top-ln-2" href="https://www.unitedchurcharchives.ca/contact-us/">Contact Us</a></li>
                 </ul>
                 </div>
             </div>

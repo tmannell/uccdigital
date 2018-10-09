@@ -4,7 +4,7 @@
     echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show'));
 ?>
 <div class="container">
-<h2 class="text-center"><a title="View Fonds Description at archeion.ca" href="<?php echo metadata('collection', array('Dublin Core', 'Relation')); ?>" target="_blank"><?php echo $collectionTitle; ?></a></h2>
+    <h2 id="collection-show-title"><a title="View Fonds Description at archeion.ca" href="<?php echo metadata('collection', array('Dublin Core', 'Relation')); ?>" target="_blank"><?php echo $collectionTitle; ?></a></h2>
 
         <div class="row">
             <div id="dublin-core-description" class="col-sm-12 collection-element-text">
