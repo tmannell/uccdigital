@@ -65,7 +65,7 @@
                     </div>
                     <div class="row footer-link">
                         <div class="col-sm-11">
-                            <a href="/contact" target="_blank"><?php echo __('Contact Us') ?></a>
+                            <a href="https://www.unitedchurcharchives.ca/contact-us/" target="_blank"><?php echo __('Contact Us') ?></a>
                         </div>
                     </div>
                 </div>
