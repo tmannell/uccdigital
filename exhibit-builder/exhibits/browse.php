@@ -33,7 +33,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
           </div>
         <?php endforeach; ?>
         <?php else: ?>
-        <p><?php echo __('There are no exhibits available yet.'); ?></p>
+        <p><?php echo __('There are not any exhibits available.'); ?></p>
         <?php endif; ?>
     </div>
   <?php echo pagination_links(); ?>
