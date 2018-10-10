@@ -8,6 +8,7 @@
         <meta name="description" content="<?php echo $description; ?>" />
     <?php endif; ?>
 
+    <link rel="shortcut icon" href="favicon.gif" type="image/x-icon" />
     <!-- Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
