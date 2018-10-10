@@ -225,10 +225,6 @@ nav.navbar:nth-child(3) {
 }
 
 /* Exhibition Summary */
-#exhibit-nav-next:hover {
-    background-color: #ddd;
-}
-
 .exhibition-title {
     margin-bottom: 1em;
 }
