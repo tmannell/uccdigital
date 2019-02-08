@@ -224,6 +224,30 @@ nav.navbar:nth-child(3) {
     margin-left: 20px;
 }
 
+/* General Exhibition stuff */
+.exhibit-container {
+    margin: 0 auto;
+    width: 1600px;
+}
+
+.exhibit-container {
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+
+.exhibit-container-correction {
+    padding-left: 1em;
+}
+
+.exhibit-info-col {
+    background-color: #fff;
+    padding: 2.33em;
+}
+
+a.download-file {
+    text-align:center;
+}
+
 /* Exhibition Summary */
 .exhibition-title {
     margin-bottom: 1em;
@@ -272,6 +296,7 @@ nav.navbar:nth-child(3) {
 #exhibit-pages li:hover {
     background-color: #eee;
 }
+
 /* Simple Page */
 .simple-page-content {
     padding: 1.25em 2.25em 0;

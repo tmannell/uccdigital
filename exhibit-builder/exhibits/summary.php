@@ -1,16 +1,31 @@
 <?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
 
-<div class="container container-correction">
+<div class="exhibit-container exhibit-container-correction">
 
-    <h2 class="exhibition-title"><?php echo metadata('exhibit', 'title'); ?></h2>
-    <?php echo exhibit_builder_page_nav(); ?>
     <div class="row">
-        <div class="col-sm-12" id="primary">
-            <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
-            <div class="exhibit-description">
-                <?php echo $exhibitDescription; ?>
+        <div class="col-sm-8 exhibit-info-col">
+            <h2 class="exhibition-title"><?php echo metadata('exhibit', 'title'); ?></h2>
+            <?php echo exhibit_builder_page_nav(); ?>
+            <div class="row">
+                <div class="col-sm-12" id="primary">
+                    <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
+                    <div class="exhibit-description">
+                        <?php echo $exhibitDescription; ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
             </div>
-            <?php endif; ?>
+        </div>
+
+        <div class="col-sm-4 exhibit-side">
+            <nav class="nav-sidebar" id="exhibit-pages">
+              <?php
+              $pageTree = exhibit_builder_page_tree();
+              if ($pageTree):
+                ?>
+                <?php echo $pageTree; ?>
+              <?php endif; ?>
+            </nav>
         </div>
     </div>
 
@@ -20,19 +35,6 @@
                 <h3><?php echo __('Credits'); ?></h3>
                 <p><?php echo $exhibitCredits; ?></p>
             </div>
-        <?php endif; ?>
-    </div>
-</div>
-<div class="container">
-        <?php
-        $pageTree = exhibit_builder_page_tree();
-        if ($pageTree):
-        ?>
-        <nav class="row" id="exhibit-pages">
-            <div class="col-sm-10 col-sm-offset-1">
-                <?php echo $pageTree; ?>
-            </div>
-        </nav>
         <?php endif; ?>
     </div>
 </div>
