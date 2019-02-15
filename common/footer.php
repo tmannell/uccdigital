@@ -1,4 +1,4 @@
-    </main>
+   </main>
     <footer role="contentinfo">
         <div class="container">
             <?php fire_plugin_hook('public_footer', array('view' => $this)); ?>
@@ -11,7 +11,7 @@
                     </div>
                     <div class="row footer-link">
                         <div class="col-sm-11">
-                            <a href="https://united-church.ca" target="_blank"><?php echo __('The United Church of Canada (website)') ?></a>
+                            <a href="https://united-church.ca" target="_blank"><?php echo __('The United Church of Canada') ?></a>
                         </div>
                     </div>
                     <div class="row footer-link">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="row footer-link">
                         <div class="col-sm-11">
-                            <a href="http://thechildrenremembered.ca/" target="_blank"><?php echo __('The Children Remembered') ?></a>
+                            <a href="https://thechildrenremembered.ca/" target="_blank"><?php echo __('The Children Remembered') ?></a>
                         </div>
                     </div>
                     <div class="row footer-link">
