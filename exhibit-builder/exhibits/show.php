@@ -3,7 +3,7 @@ echo head(array(
     'title' => metadata('exhibit_page', 'title') . ' &middot; ' . metadata('exhibit', 'title'),
     'bodyclass' => 'exhibits show'));
 ?>
-<div class="exhibit-container exhibit-container-correction">
+<div class="container exhibit-container exhibit-container-correction">
 
     <div class="row">
         <div class="col-sm-8 exhibit-info-col">
@@ -29,7 +29,7 @@ echo head(array(
     </div>
 </div>
 
-<div class="exhibit-container exhibit-container-correction">
+<div class="container exhibit-container exhibit-container-correction">
     <div class="row">
         <div class="col-sm-8 exhibit-info-col">
             <?php if ($prevLink = exhibit_builder_link_to_previous_page()): ?>

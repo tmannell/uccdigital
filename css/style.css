@@ -226,13 +226,9 @@ nav.navbar:nth-child(3) {
 
 /* General Exhibition stuff */
 .exhibit-container {
-    margin: 0 auto;
-    width: 1600px;
-}
-
-.exhibit-container {
+    margin: 0 auto 1em;
+    background-color: transparent !important;
     border-radius: 4px;
-    margin-bottom: 1em;
 }
 
 .exhibit-container-correction {
@@ -354,6 +350,10 @@ img {
     #nav-site-title {
         display:none;
     }
+
+    exhibit-side {
+        padding: 0;
+    }
 }
 @media only screen and (max-width: 991px) {
     #nav-search {
@@ -412,5 +412,19 @@ img {
     #primary-navigation .ucc-navs .active a {
         background-color: #ddd;
     }
+
+    .exhibit-side {
+        padding: 1em 1em 0em 0em;
+        margin-bottom: -15px;
+    }
+
+    .container {
+        margin: 0 auto;
+    }
+
+    .exhibit-container-correction {
+        padding: 1em;
+    }
+
 }
 

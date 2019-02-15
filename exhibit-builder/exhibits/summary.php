@@ -1,6 +1,6 @@
 <?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
 
-<div class="exhibit-container exhibit-container-correction">
+<div class="container exhibit-container exhibit-container-correction">
 
     <div class="row">
         <div class="col-sm-8 exhibit-info-col">
